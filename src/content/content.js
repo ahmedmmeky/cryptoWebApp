@@ -3,6 +3,7 @@ import { Dropdown } from "semantic-ui-react";
 import CryptoTable2 from "./crypto-table/crypto-table";
 import { exchanges } from "../exchanges/exchanges";
 import * as exchangeCurrencies from "../exchanges/exchangeAPIs";
+import "./content.css";
 
 const Content = () => {
   const [dropDownExchange, setDropdownExchange] = useState();
@@ -30,13 +31,24 @@ const Content = () => {
         onChange={getDropdownExchange}
       />
       <ul className="table-header">
-        <li>Name</li>
-        <li>Price</li>
-        <li>24h</li>
-        <li>24h %</li>
-        <li>Market Cap</li>
-        <li>Volume (24h)</li>
-        <li>Circulating Supply</li>
+        <div className="name">
+          <li>Name</li>
+        </div>
+        <div className="price">
+          <li className>Price</li>
+        </div>
+        <div className="volume">
+          <li>Volume</li>
+        </div>
+        <div className="percent-change">
+          <li>24h %</li>
+        </div>
+        {/*<li>24h</li>*/}
+        <div className="market-cap">
+          <li>Market Cap</li>
+        </div>
+
+        {/*<li>Circulating Supply</li>*/}
       </ul>
 
       <CryptoTable2 exchange={exchange} />

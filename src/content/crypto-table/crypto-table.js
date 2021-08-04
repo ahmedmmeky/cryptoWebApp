@@ -25,6 +25,7 @@ const CryptoTable2 = ({ exchange }) => {
             id,
             image,
             name,
+            symbol,
             current_price,
             price_change_24h,
             price_change_percentage_24h,
@@ -33,33 +34,27 @@ const CryptoTable2 = ({ exchange }) => {
             circulating_supply,
           } = currency;
           return (
-            <div>
-              <ul className="currency-list">
-                <li>
+            <div className="coin-container" key={id}>
+              <div className="coin-row">
+                <div className="coin">
                   <img class="image" src={image} alt="" />
-                </li>
-                <li key={id}>
-                  <p>{name}</p>
-                </li>
-                <li>
-                  <p>{current_price}</p>
-                </li>
-                <li>
-                  <p>{price_change_24h}</p>
-                </li>
-                <li>
-                  <p>{price_change_percentage_24h}</p>
-                </li>
-                <li>
-                  <p>{market_cap}</p>
-                </li>
-                <li>
-                  <p>{total_volume}</p>
-                </li>
-                <li>
-                  <p>{circulating_supply}</p>
-                </li>
-              </ul>
+                  <h1>{name}</h1>
+                  <p className="symbol">{symbol.toUpperCase()}</p>
+                </div>
+
+                <div className="coin-data">
+                  <p className="coin-price">${current_price}</p>
+                  <p className="coin-volume">
+                    ${total_volume.toLocaleString()}
+                  </p>
+
+                  <p className="coin-percent">{price_change_percentage_24h}%</p>
+
+                  <p className="coin-marketcap">
+                    ${market_cap.toLocaleString()}
+                  </p>
+                </div>
+              </div>
             </div>
           );
         })}

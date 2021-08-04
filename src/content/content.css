@@ -1,0 +1,38 @@
+.table-header {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 75px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.table-header li {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.table-header .name {
+  position: fixed;
+  margin-right: 875px;
+}
+
+.table-header .price {
+  position: fixed;
+  margin-right: 175px;
+}
+.table-header .volume {
+  position: fixed;
+  margin-left: 125px;
+}
+
+.table-header .percent-change {
+  position: fixed;
+  margin-left: 340px;
+}
+
+.table-header .market-cap {
+  position: fixed;
+  margin-left: 735px;
+}
