@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Dropdown } from "semantic-ui-react";
-import CryptoTable2 from "../crypto-table-2/crypto-table-2";
-import { exchanges } from "../crypto-table/exchanges";
-import * as exchangeCurrencies from "../exchanges/exchangeCurrencies";
+import CryptoTable2 from "./crypto-table/crypto-table";
+import { exchanges } from "../exchanges/exchanges";
+import * as exchangeCurrencies from "../exchanges/exchangeAPIs";
 
 const Content = () => {
   const [dropDownExchange, setDropdownExchange] = useState();
