@@ -48,3 +48,13 @@ ul.table-header {
   list-style-type: none;
   font-size: 16px;
 }
+.currency-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 30px;
+  align-items: center;
+}
+ul.currency-list {
+  list-style-type: none;
+}

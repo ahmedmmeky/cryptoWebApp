@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+/*import React, { useState, useEffect } from "react";
 import { Dropdown } from "semantic-ui-react";
 import { COIN } from "../exchanges/COIN";
 import { cryptoData } from "./cryptoData";
@@ -48,17 +48,24 @@ const CryptoTable = () => {
       </ul>
 
       {currencies.map((currency) => {
-        const { id, name } = currency;
+        const { id, name, price } = currency;
         return (
-          <li key={id}>
-            <div>
-              <p>{name}</p>
-            </div>
-          </li>
+          <div>
+            <ul className="currency-list">
+              <li key={id}>
+                <div>
+                  <p>{name}</p>
+                </div>
+              </li>
+              <li>
+                <p>{price}</p>
+              </li>
+            </ul>
+          </div>
         );
       })}
     </div>
   );
 };
 
-export default CryptoTable;
+export default CryptoTable;*/
