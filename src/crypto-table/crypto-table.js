@@ -37,15 +37,15 @@ const CryptoTable = () => {
         onChange={getExchange}
       />
       <br />
-      <section className="table-header">
-        <h4>Name</h4>
-        <h4>Price</h4>
-        <h4>24h %</h4>
-        <h4>7d %</h4>
-        <h4>Market Cap</h4>
-        <h4>Volume (24h)</h4>
-        <h4>Circulating Supply</h4>
-      </section>
+      <ul className="table-header">
+        <li>Name</li>
+        <li>Price</li>
+        <li>24h %</li>
+        <li>7d %</li>
+        <li>Market Cap</li>
+        <li>Volume (24h)</li>
+        <li>Circulating Supply</li>
+      </ul>
 
       {currencies.map((currency) => {
         const { id, name } = currency;
