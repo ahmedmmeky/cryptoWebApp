@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./crypto-table.css";
 const CryptoTable2 = ({ exchange }) => {
   const [currencies, setCurrencies] = useState([]);
 
@@ -20,17 +21,43 @@ const CryptoTable2 = ({ exchange }) => {
     return (
       <div>
         {currencies.map((currency) => {
-          const { id, name, price } = currency;
+          const {
+            id,
+            image,
+            name,
+            current_price,
+            price_change_24h,
+            price_change_percentage_24h,
+            market_cap,
+            total_volume,
+            circulating_supply,
+          } = currency;
           return (
             <div>
               <ul className="currency-list">
+                <li>
+                  <img class="image" src={image} alt="" />
+                </li>
                 <li key={id}>
-                  <div>
-                    <p>{name}</p>
-                  </div>
+                  <p>{name}</p>
                 </li>
                 <li>
-                  <p>{price}</p>
+                  <p>{current_price}</p>
+                </li>
+                <li>
+                  <p>{price_change_24h}</p>
+                </li>
+                <li>
+                  <p>{price_change_percentage_24h}</p>
+                </li>
+                <li>
+                  <p>{market_cap}</p>
+                </li>
+                <li>
+                  <p>{total_volume}</p>
+                </li>
+                <li>
+                  <p>{circulating_supply}</p>
                 </li>
               </ul>
             </div>

@@ -32,8 +32,8 @@ const Content = () => {
       <ul className="table-header">
         <li>Name</li>
         <li>Price</li>
+        <li>24h</li>
         <li>24h %</li>
-        <li>7d %</li>
         <li>Market Cap</li>
         <li>Volume (24h)</li>
         <li>Circulating Supply</li>
