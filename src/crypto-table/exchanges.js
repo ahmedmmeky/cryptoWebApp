@@ -9,7 +9,7 @@ export const exchanges = [
   },
   {
     key: "2",
-    value: "CB",
+    value: "COIN",
     text: "Coinbase",
     image: {
       src: "https://pbs.twimg.com/media/Ey9YojwXEAUb1OP.jpg",

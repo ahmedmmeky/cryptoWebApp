@@ -1,10 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Dropdown } from "semantic-ui-react";
+import { COIN } from "../exchanges/COIN";
 import { cryptoData } from "./cryptoData";
 import { exchanges } from "./exchanges";
+import * as exchangeCurrencies from "../exchanges/exchangeCurrencies";
 
 const CryptoTable = () => {
-  const [currencies, setCurrencies] = useState(cryptoData);
+  const [currencies, setCurrencies] = useState(exchangeCurrencies.BNB);
+  console.log(currencies);
+  const [currentExchange, setCurrentExchange] = useState();
+
+  const getExchange = (e, { value }) => {
+    console.log("being called");
+    console.log(value);
+    setCurrentExchange(value);
+    console.log(currentExchange);
+  };
+
+  useEffect(() => {
+    console.log("exchange changed to " + currentExchange);
+    const chosenExchange = exchangeCurrencies[currentExchange];
+    console.log(chosenExchange);
+    if (currentExchange !== undefined) {
+      setCurrencies(chosenExchange);
+    }
+  }, [currentExchange]);
+
   return (
     <div>
       <Dropdown
@@ -13,6 +34,7 @@ const CryptoTable = () => {
         search
         selection
         options={exchanges}
+        onChange={getExchange}
       />
       <br />
       <section className="table-header">
@@ -26,11 +48,7 @@ const CryptoTable = () => {
       </section>
 
       {currencies.map((currency) => {
-        console.log(currencies);
-        console.log(currency);
         const { id, name } = currency;
-        console.log(name);
-        console.log(id);
         return (
           <li key={id}>
             <div>
