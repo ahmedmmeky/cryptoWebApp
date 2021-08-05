@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./crypto-table.css";
-const CryptoTable2 = ({ exchange }) => {
+const CryptoTable = ({ exchange }) => {
   const [currencies, setCurrencies] = useState([]);
 
   const getCurrencies = async () => {
@@ -66,4 +66,4 @@ const CryptoTable2 = ({ exchange }) => {
   }
 };
 
-export default CryptoTable2;
+export default CryptoTable;
