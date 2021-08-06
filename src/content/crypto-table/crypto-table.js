@@ -11,8 +11,10 @@ const CryptoTable = ({ exchange, searchValue }) => {
     const apiCurrencies = await response.json();
     setCurrencies(apiCurrencies);
     if (searchValue.length > 0) {
-      const updatedCurrencies = apiCurrencies.filter((currency) =>
-        currency.name.toLowerCase().includes(searchValue.toLowerCase())
+      const updatedCurrencies = apiCurrencies.filter(
+        (currency) =>
+          currency.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+          currency.symbol.toLowerCase().includes(searchValue.toLowerCase())
       );
       setCurrencies(updatedCurrencies);
       console.log(updatedCurrencies);
