@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./crypto-table.css";
-const CryptoTable = ({ exchange }) => {
+const CryptoTable = ({ exchange, searchValue }) => {
   const [currencies, setCurrencies] = useState([]);
-
+  console.log(searchValue);
   const getCurrencies = async () => {
     const url = exchange[0];
     console.log(url);
@@ -10,12 +10,19 @@ const CryptoTable = ({ exchange }) => {
     const response = await fetch(url);
     const apiCurrencies = await response.json();
     setCurrencies(apiCurrencies);
-    console.log(apiCurrencies);
+    if (searchValue.length > 0) {
+      const updatedCurrencies = apiCurrencies.filter((currency) =>
+        currency.name.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setCurrencies(updatedCurrencies);
+      console.log(updatedCurrencies);
+    }
+    //console.log(apiCurrencies);
   };
 
   useEffect(() => {
     getCurrencies();
-  }, [exchange]);
+  }, [exchange, searchValue]);
 
   if (exchange.length !== 0) {
     return (

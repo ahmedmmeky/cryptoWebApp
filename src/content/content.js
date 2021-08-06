@@ -8,6 +8,7 @@ import "./content.css";
 const Content = () => {
   const [dropDownExchange, setDropdownExchange] = useState();
   const [exchange, setExchange] = useState([]);
+  const [searchValue, setSearchValue] = useState();
 
   const getDropdownExchange = async (e, { value }) => {
     setDropdownExchange(value);
@@ -57,6 +58,12 @@ const Content = () => {
         options={exchanges}
         onChange={getDropdownExchange}
       />
+      <input
+        type="text"
+        name=""
+        id=""
+        onChange={(e) => setSearchValue(e.target.value)}
+      />
       <div class="header-container">
         <ul className="table-header">
           <div className="name">
@@ -80,7 +87,11 @@ const Content = () => {
         </ul>
       </div>
 
-      <CryptoTable exchange={exchange} className="crypto-table" />
+      <CryptoTable
+        exchange={exchange}
+        searchValue={searchValue}
+        className="crypto-table"
+      />
     </div>
   );
 };
