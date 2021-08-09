@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from "react";
+import CryptoRow from "../crypto-row/crypto-row";
 import "./crypto-table.css";
 const CryptoTable = ({ exchange, searchValue }) => {
   const [currencies, setCurrencies] = useState([]);
-  console.log(searchValue);
+  //console.log(searchValue);
   const getCurrencies = async () => {
     const url = exchange[0];
-    console.log(url);
-    console.log(typeof url);
+    //console.log(url);
+    //console.log(typeof url);
     const response = await fetch(url);
     const apiCurrencies = await response.json();
     setCurrencies(apiCurrencies);
-    if (searchValue.length > 0) {
+
+    if (searchValue) {
       const updatedCurrencies = apiCurrencies.filter(
         (currency) =>
           currency.name.toLowerCase().includes(searchValue.toLowerCase()) ||
           currency.symbol.toLowerCase().includes(searchValue.toLowerCase())
       );
       setCurrencies(updatedCurrencies);
-      console.log(updatedCurrencies);
+      //console.log(updatedCurrencies);
     }
     //console.log(apiCurrencies);
   };
@@ -29,45 +31,21 @@ const CryptoTable = ({ exchange, searchValue }) => {
   if (exchange.length !== 0) {
     return (
       <div>
-        {currencies.map((currency) => {
-          const {
-            id,
-            image,
-            name,
-            symbol,
-            current_price,
-            price_change_24h,
-            price_change_percentage_24h,
-            market_cap,
-            total_volume,
-            circulating_supply,
-          } = currency;
+        {currencies.map((coin) => {
           return (
-            <div className="coin-container" key={id}>
-              <div className="coin-row">
-                <div className="coin">
-                  <img class="image" src={image} alt="" />
-                  <h1>{name}</h1>
-                  <p className="symbol">{symbol.toUpperCase()}</p>
-                </div>
-
-                <div className="coin-data">
-                  <p className="coin-price">${current_price}</p>
-                  <p className="coin-volume">
-                    ${total_volume.toLocaleString()}
-                  </p>
-
-                  <p className="coin-percent">{price_change_percentage_24h}%</p>
-
-                  <p className="coin-marketcap">
-                    ${market_cap.toLocaleString()}
-                  </p>
-                </div>
-              </div>
-            </div>
+            <CryptoRow
+              id={coin.id}
+              name={coin.name}
+              price={coin.current_price}
+              symbol={coin.symbol}
+              marketCap={coin.market_cap}
+              volume={coin.total_volume}
+              image={coin.image}
+              priceChange={coin.price_change_percentage_24h}
+            />
           );
+          <p>Hello</p>;
         })}
-        ;
       </div>
     );
   } else {
