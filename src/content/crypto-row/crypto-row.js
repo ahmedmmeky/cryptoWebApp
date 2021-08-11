@@ -29,8 +29,12 @@ export const CryptoRow = ({
             </div>
             <div className="coin-data">
               <p className="coin-price">${price}</p>
+              {priceChange < 0 ? (
+                <p className="coin-percent red">{priceChange}%</p>
+              ) : (
+                <p className="coin-percent green">{priceChange}%</p>
+              )}
               <p className="coin-volume">${volume.toLocaleString()}</p>
-              <p className="coin-percent">{priceChange.toFixed(2)}%</p>
 
               <p className="coin-marketcap">${marketCap}</p>
             </div>

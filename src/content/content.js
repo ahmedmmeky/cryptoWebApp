@@ -8,7 +8,6 @@ import "./content.css";
 const Content = () => {
   const [dropDownExchange, setDropdownExchange] = useState();
   const [exchange, setExchange] = useState([]);
-  const [searchValue, setSearchValue] = useState();
 
   const getDropdownExchange = async (e, { value }) => {
     setDropdownExchange(value);
@@ -18,29 +17,32 @@ const Content = () => {
   };
 
   window.addEventListener("scroll", function () {
-    const headerContainer = document.querySelector(".header-container");
-    const scrollHeight = window.pageYOffset;
-    const nameListItem = document.querySelector(".name");
-    const priceListItem = document.querySelector(".price");
-    const volumeListItem = document.querySelector(".volume");
-    const percentListItem = document.querySelector(".percent-change");
-    const marketListItem = document.querySelector(".market-cap");
-    const headerContainerHeight =
-      headerContainer.getBoundingClientRect().height;
-    if (scrollHeight > headerContainerHeight) {
-      headerContainer.classList.add("scrolling");
-      nameListItem.classList.add("scrolling-heading-value");
-      priceListItem.classList.add("scrolling-heading-value");
-      volumeListItem.classList.add("scrolling-heading-value");
-      percentListItem.classList.add("scrolling-heading-value");
-      marketListItem.classList.add("scrolling-heading-value");
-    } else {
-      headerContainer.classList.remove("scrolling");
-      nameListItem.classList.remove("scrolling-heading-value");
-      priceListItem.classList.remove("scrolling-heading-value");
-      volumeListItem.classList.remove("scrolling-heading-value");
-      percentListItem.classList.remove("scrolling-heading-value");
-      marketListItem.classList.remove("scrolling-heading-value");
+    if (this.document.location.pathname === "/") {
+      const headerContainer = document.querySelector(".header-container");
+      const scrollHeight = window.pageYOffset;
+      const nameListItem = document.querySelector(".name");
+      const priceListItem = document.querySelector(".price");
+      const volumeListItem = document.querySelector(".volume");
+      const percentListItem = document.querySelector(".percent-change");
+      const marketListItem = document.querySelector(".market-cap");
+
+      const headerContainerHeight =
+        headerContainer.getBoundingClientRect().height;
+      if (scrollHeight > headerContainerHeight) {
+        headerContainer.classList.add("scrolling");
+        nameListItem.classList.add("scrolling-heading-value");
+        priceListItem.classList.add("scrolling-heading-value");
+        volumeListItem.classList.add("scrolling-heading-value");
+        percentListItem.classList.add("scrolling-heading-value");
+        marketListItem.classList.add("scrolling-heading-value");
+      } else {
+        headerContainer.classList.remove("scrolling");
+        nameListItem.classList.remove("scrolling-heading-value");
+        priceListItem.classList.remove("scrolling-heading-value");
+        volumeListItem.classList.remove("scrolling-heading-value");
+        percentListItem.classList.remove("scrolling-heading-value");
+        marketListItem.classList.remove("scrolling-heading-value");
+      }
     }
   });
 
@@ -57,12 +59,6 @@ const Content = () => {
         selection
         options={exchanges}
         onChange={getDropdownExchange}
-      />
-      <input
-        type="text"
-        name=""
-        id=""
-        onChange={(e) => setSearchValue(e.target.value)}
       />
       <div class="header-container">
         <ul className="table-header">
@@ -87,11 +83,7 @@ const Content = () => {
         </ul>
       </div>
 
-      <CryptoTable
-        exchange={exchange}
-        searchValue={searchValue}
-        className="crypto-table"
-      />
+      <CryptoTable exchange={exchange} className="crypto-table" />
     </div>
   );
 };
