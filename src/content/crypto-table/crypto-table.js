@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import CryptoRow from "../crypto-row/crypto-row";
 import "./crypto-table.css";
-const CryptoTable = ({ exchange }) => {
+const CryptoTable = () => {
   const [currencies, setCurrencies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
   const getCurrencies = async () => {
-    const url = exchange[0];
+    const url =
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1000&page=1&sparkline=false";
     const response = await fetch(url);
     const apiCurrencies = await response.json();
     setCurrencies(apiCurrencies);
@@ -18,7 +19,7 @@ const CryptoTable = ({ exchange }) => {
     const interval = setInterval(() => {
       getCurrencies();
     }, 3000);
-  }, [exchange]);
+  }, []);
 
   const updatedCurrencies = currencies.filter(
     (currency) =>
@@ -26,7 +27,7 @@ const CryptoTable = ({ exchange }) => {
       currency.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
-  if (exchange.length !== 0 && !loading) {
+  if (updatedCurrencies.length !== 0 && !loading) {
     return (
       <div>
         <input
@@ -51,7 +52,7 @@ const CryptoTable = ({ exchange }) => {
         })}
       </div>
     );
-  } else if (exchange.length !== 0 && loading) {
+  } else if (loading) {
     return (
       <div>
         <div class="loader"></div>
@@ -60,7 +61,7 @@ const CryptoTable = ({ exchange }) => {
   } else {
     return (
       <div>
-        <h2>Select an Exchange!</h2>
+        <h2>There has been an issue with our API call</h2>
       </div>
     );
   }

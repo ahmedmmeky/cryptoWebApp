@@ -7,16 +7,6 @@ import "./content.css";
 import { Link } from "react-router-dom";
 
 const Content = () => {
-  const [dropDownExchange, setDropdownExchange] = useState();
-  const [exchange, setExchange] = useState([]);
-
-  const getDropdownExchange = async (e, { value }) => {
-    setDropdownExchange(value);
-    const chosenExchange = exchangeCurrencies[value];
-    setExchange(chosenExchange);
-    //console.log(exchange);
-  };
-
   window.addEventListener("scroll", function () {
     if (this.document.location.pathname === "/") {
       const headerContainer = document.querySelector(".header-container");
@@ -53,14 +43,6 @@ const Content = () => {
 
   return (
     <div>
-      <Dropdown
-        placeholder="Select Exchange"
-        fluid
-        search
-        selection
-        options={exchanges}
-        onChange={getDropdownExchange}
-      />
       <div class="header-container">
         <ul className="table-header">
           <div className="name">
@@ -84,7 +66,7 @@ const Content = () => {
         </ul>
       </div>
 
-      <CryptoTable exchange={exchange} className="crypto-table" />
+      <CryptoTable className="crypto-table" />
     </div>
   );
 };
