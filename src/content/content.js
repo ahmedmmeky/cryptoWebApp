@@ -4,6 +4,7 @@ import CryptoTable from "./crypto-table/crypto-table";
 import { exchanges } from "../exchanges/exchanges";
 import * as exchangeCurrencies from "../exchanges/exchangeAPIs";
 import "./content.css";
+import { Link } from "react-router-dom";
 
 const Content = () => {
   const [dropDownExchange, setDropdownExchange] = useState();

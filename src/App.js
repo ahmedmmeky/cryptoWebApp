@@ -5,6 +5,8 @@ import "./content/crypto-table/crypto-table.css";
 import Content from "./content/content";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Coin from "./content/coin/coin";
+import CryptoTable from "./content/crypto-table/crypto-table";
+import About from "./content/about/about";
 
 function App() {
   return (
@@ -14,6 +16,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Content />
+          </Route>
+          <Route exact path="/about">
+            <About />
           </Route>
           <Route path="/:id" children={<Coin />}></Route>
         </Switch>

@@ -21,10 +21,8 @@ export const Coin = () => {
       setFirstLoad(false);
     }
     const interval = setInterval(() => {
-      console.log("being called");
       getCoin();
     }, 5000);
-    console.log(coin);
     //console.log(coin.market_data.price_change_percentage_24h);
   }, []);
   if (coin !== undefined) {
@@ -54,6 +52,8 @@ export const Coin = () => {
           </div>
         </div>
         <div>
+          <h2>Current Price</h2>
+          <h3>${coin.market_data.current_price.usd}</h3>
           <h2>Price Change (24h)</h2>
           <h3>${coin.market_data.price_change_24h.toLocaleString()}</h3>
           <h2>Price Change (7d)</h2>
