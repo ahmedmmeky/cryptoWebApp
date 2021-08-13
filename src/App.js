@@ -1,16 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Header from "./header/header";
-import "./content/crypto-table/crypto-table.css";
+//import "./content/crypto-table/crypto-table.scss";
 import Content from "./content/content";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Coin from "./content/coin/coin";
-import CryptoTable from "./content/crypto-table/crypto-table";
 import About from "./content/about/about";
 
 function App() {
   return (
-    <>
+    <div>
       <Router>
         <Header />
         <Switch>
@@ -23,7 +22,7 @@ function App() {
           <Route path="/:id" children={<Coin />}></Route>
         </Switch>
       </Router>
-    </>
+    </div>
   );
 }
 

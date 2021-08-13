@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CryptoRow from "../crypto-row/crypto-row";
-import "./crypto-table.css";
+import "./crypto-table.scss";
 const CryptoTable = () => {
   const [currencies, setCurrencies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,15 +27,55 @@ const CryptoTable = () => {
       currency.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
-  if (updatedCurrencies.length !== 0 && !loading) {
+  if (!loading) {
     return (
       <div>
-        <input
-          type="text"
-          name=""
-          id=""
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <div class="above-table">
+          <div class="search-container">
+            <div class="search-bar">
+              <input
+                type="text"
+                placeholder="Search..."
+                onChange={(e) => setSearch(e.target.value)}
+              ></input>
+              <div class="search"></div>
+            </div>
+          </div>
+        </div>
+
+        {/*<div className="search-bar">
+          <input
+            type="text"
+            name=""
+            id=""
+            onChange={(e) => setSearch(e.target.value)}
+          />
+    </div>*/}
+        <div class="header-container">
+          <ul className="table-header">
+            <div className="name">
+              <li>Name</li>
+            </div>
+            <div className="coin-data-header">
+              <div className="price-header">
+                <li>Price</li>
+              </div>
+              <div className="percent-change-header">
+                <li>24h %</li>
+              </div>
+              <div className="volume-header">
+                <li>Volume</li>
+              </div>
+              {/*<li>24h</li>*/}
+              <div className="market-cap-header">
+                <li>Market Cap</li>
+              </div>
+            </div>
+
+            {/*<li>Circulating Supply</li>*/}
+          </ul>
+        </div>
+
         {updatedCurrencies.map((coin) => {
           return (
             <CryptoRow
@@ -59,11 +99,7 @@ const CryptoTable = () => {
       </div>
     );
   } else {
-    return (
-      <div>
-        <h2>There has been an issue with our API call</h2>
-      </div>
-    );
+    return <div></div>;
   }
 };
 

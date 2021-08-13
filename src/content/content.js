@@ -7,7 +7,7 @@ import "./content.css";
 import { Link } from "react-router-dom";
 
 const Content = () => {
-  window.addEventListener("scroll", function () {
+  /*window.addEventListener("scroll", function () {
     if (this.document.location.pathname === "/") {
       const headerContainer = document.querySelector(".header-container");
       const scrollHeight = window.pageYOffset;
@@ -35,37 +35,13 @@ const Content = () => {
         marketListItem.classList.remove("scrolling-heading-value");
       }
     }
-  });
-
+  });*/
   /*useEffect(() => {
     getExchange();
   }, [exchange]);*/
 
   return (
     <div>
-      <div class="header-container">
-        <ul className="table-header">
-          <div className="name">
-            <li>Name</li>
-          </div>
-          <div className="price">
-            <li className>Price</li>
-          </div>
-          <div className="volume">
-            <li>Volume</li>
-          </div>
-          <div className="percent-change">
-            <li>24h %</li>
-          </div>
-          {/*<li>24h</li>*/}
-          <div className="market-cap">
-            <li>Market Cap</li>
-          </div>
-
-          {/*<li>Circulating Supply</li>*/}
-        </ul>
-      </div>
-
       <CryptoTable className="crypto-table" />
     </div>
   );

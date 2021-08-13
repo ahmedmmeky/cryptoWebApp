@@ -1,35 +1,4 @@
-.table-header {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 60px;
-  margin-bottom: 25px;
-}
-
-.scrolling {
-  margin-top: -110px;
-  position: fixed;
-  background-color: rgb(157, 77, 191);
-  width: 100%;
-}
-
-.table-header li {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.scrolling-heading-value {
-  margin-bottom: 30px;
-}
-
-.table-header .name {
-  position: fixed;
-  margin-right: 875px;
-}
-
-.table-header .price {
+/*.table-header .price {
   position: fixed;
   margin-right: 175px;
 }
@@ -47,3 +16,4 @@
   position: fixed;
   margin-left: 735px;
 }
+*/
