@@ -1,33 +1,47 @@
 .header {
   width: 100%;
-  height: 100px;
-  background-color: #30242c;
+  height: 150px;
+  background-color: rgba(4, 6, 43, 255);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .header-content {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   height: 80px;
   width: 900px;
+  margin-left: -17px;
 }
 
 .header-content h1 {
-  color: #f28b01;
+  color: rgba(15, 70, 243, 255);
   text-align: center;
+}
+
+.LogoImg {
+  background-image: url(../kblogosample.jpg);
+  width: 150px;
+  height: 150px;
+  background-size: contain;
 }
 
 .logo {
   display: flex;
   align-items: center;
   padding-right: 24px;
-  min-width: 300px;
+  min-width: 200px;
 }
 
 .menu h1 {
   color: white;
+}
+
+.border {
+  width: 100%;
+  height: 1px;
+  background-color: #1043f4;
 }

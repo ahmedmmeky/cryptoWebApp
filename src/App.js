@@ -9,7 +9,7 @@ import About from "./content/about/about";
 
 function App() {
   return (
-    <div>
+    <div className="app-background">
       <Router>
         <Header />
         <Switch>

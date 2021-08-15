@@ -29,7 +29,7 @@ const CryptoTable = () => {
 
   if (!loading) {
     return (
-      <div>
+      <div className="crypto-table-background" style={{}}>
         <div class="above-table">
           <div class="search-container">
             <div class="search-bar">
@@ -43,14 +43,6 @@ const CryptoTable = () => {
           </div>
         </div>
 
-        {/*<div className="search-bar">
-          <input
-            type="text"
-            name=""
-            id=""
-            onChange={(e) => setSearch(e.target.value)}
-          />
-    </div>*/}
         <div class="header-container">
           <ul className="table-header">
             <div className="name">
@@ -76,30 +68,58 @@ const CryptoTable = () => {
           </ul>
         </div>
 
-        {updatedCurrencies.map((coin) => {
-          return (
-            <CryptoRow
-              id={coin.id}
-              name={coin.name}
-              price={coin.current_price}
-              symbol={coin.symbol}
-              marketCap={coin.market_cap}
-              volume={coin.total_volume}
-              image={coin.image}
-              priceChange={coin.price_change_percentage_24h}
-            />
-          );
-        })}
+        {updatedCurrencies.length !== 0 ? (
+          updatedCurrencies.map((coin) => {
+            return (
+              <CryptoRow
+                id={coin.id}
+                name={coin.name}
+                price={coin.current_price}
+                symbol={coin.symbol}
+                marketCap={coin.market_cap}
+                volume={coin.total_volume}
+                image={coin.image}
+                priceChange={coin.price_change_percentage_24h}
+              />
+            );
+          })
+        ) : (
+          <div className="no-coins">
+            <h2>No Coins Were Found</h2>
+          </div>
+        )}
       </div>
     );
   } else if (loading) {
     return (
-      <div>
-        <div class="loader"></div>
+      <div class="loading-container">
+        <figure>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </figure>
       </div>
     );
   } else {
-    return <div></div>;
+    return (
+      <div style={{ backgroundColor: "rgba(28, 27, 36, 255)" }}>
+        <figure>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </figure>
+      </div>
+    );
   }
 };
 

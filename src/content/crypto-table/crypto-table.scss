@@ -1,11 +1,25 @@
-.crypto-table {
-  background-color: rgb(32, 28, 36);
-}
-
 .search-bar {
   display: flex;
   justify-content: center;
   margin-top: 40px;
+}
+
+.no-coins {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-coins h2 {
+  color: white;
+  margin-bottom: 200px;
+}
+
+.crypto-table-background {
+  height: max-content;
+  background-color: #04062b;
 }
 
 .coin-container {
@@ -19,7 +33,7 @@
   justify-content: start;
   align-items: center;
   height: 80px;
-  border-bottom: 1px solid #d7d7d7;
+  border-bottom: 1px solid #1f83e9;
   width: 900px;
 }
 
@@ -88,8 +102,10 @@
 }
 
 .header-container {
+  position: relative;
   display: flex;
   justify-content: center;
+  background: #040624;
 }
 
 .table-header {
@@ -99,7 +115,7 @@
   justify-content: start;
   align-items: center;
   height: 80px;
-  border-bottom: 1px solid #d7d7d7;
+
   width: 900px;
 }
 
@@ -113,6 +129,7 @@
 .table-header li {
   font-size: 24px;
   font-weight: bold;
+  color: white;
 }
 
 .scrolling-heading-value {
@@ -170,14 +187,104 @@
   position: absolute;
   top: 0;
   width: 100%;
-  height: 100px;
+
   margin-bottom: -100px;
 }
 .search-container {
   width: inherit;
   height: inherit;
   position: inherit;
-  margin-left: 325px;
+  margin-left: 295px;
+}
+
+//loader
+
+.loading-container {
+  background-color: #04062b;
+  height: 100vh;
+}
+figure {
+  margin: 0;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1.4, 1.4);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 150px;
+  box-sizing: border-box;
+  animation: rotation 20s infinite linear;
+}
+
+figure div:after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: 1px solid #21bbe7;
+  box-sizing: border-box;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  animation: shuffle 1s infinite;
+}
+
+figure div:nth-child(1) {
+  transform: rotate(0deg);
+}
+figure div:nth-child(1):after {
+  animation-delay: -0.5s;
+}
+figure div:nth-child(2) {
+  transform: rotate(45deg);
+}
+figure div:nth-child(2):after {
+  animation-delay: -1s;
+}
+figure div:nth-child(3) {
+  transform: rotate(90deg);
+}
+figure div:nth-child(3):after {
+  animation-delay: -1.5s;
+}
+figure div:nth-child(4) {
+  transform: rotate(135deg);
+}
+figure div:nth-child(4):after {
+  animation-delay: -2s;
+}
+figure div:nth-child(5) {
+  transform: rotate(180deg);
+}
+figure div:nth-child(5):after {
+  animation-delay: -2.5s;
+}
+figure div:nth-child(6) {
+  transform: rotate(225deg);
+}
+figure div:nth-child(6):after {
+  animation-delay: -3s;
+}
+figure div:nth-child(7) {
+  transform: rotate(270deg);
+}
+figure div:nth-child(7):after {
+  animation-delay: -3.5s;
+}
+figure div:nth-child(8) {
+  transform: rotate(315deg);
+}
+figure div:nth-child(8):after {
+  animation-delay: -4;
+}
+
+@keyframes rotation {
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg) scale(1.4, 1.4);
+  }
+}
+@keyframes shuffle {
+  50% {
+    transform: scale(0.4, 0.4) rotate(-90deg);
+    border-radius: 50%;
+  }
 }
 
 //this is the first option:
@@ -191,7 +298,7 @@
 
 .search-bar {
   width: 300px;
-  height: 100px;
+  height: 115px;
   .search {
     position: absolute;
     margin: auto;
@@ -205,7 +312,7 @@
     border-radius: 50%;
     transition: all 0.25s ease-in-out;
     z-index: 4;
-    box-shadow: 0 0 15px 0 rgba(241, 134, 2, 255);
+    box-shadow: 0 0 15px 0 #1f83e9;
     // box-shadow: 0 0 25px 0 crimson;
     &:hover {
       cursor: pointer;
@@ -220,7 +327,7 @@
       left: 22px;
       width: 12px;
       height: 2px;
-      background: rgba(241, 134, 2, 255);
+      background: #1f83e9;
       transform: rotate(45deg);
       transition: all 0.25s ease-in-out;
     }
@@ -235,7 +342,7 @@
       width: 25px;
       height: 25px;
       border-radius: 50%;
-      border: 2px solid rgba(241, 134, 2, 255);
+      border: 2px solid #1f83e9;
       transition: all 0.25s ease-in-out;
     }
   }
@@ -257,8 +364,7 @@
     text-shadow: 0 0 10px rgba(241, 134, 2, 255);
     padding: 0 80px 0 20px;
     border-radius: 30px;
-    box-shadow: 0 0 15px 0 rgba(241, 134, 2, 255),
-      0 20px 25px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px 0 #1f83e9, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
     /*box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, 0.5);*/
     transition: all 0.5s;
     opacity: 0;
@@ -275,13 +381,13 @@
     }
     &:focus ~ .search {
       right: -250px;
-      background: #30232c;
+      background: #1c1a27;
       z-index: 6;
       &::before {
         top: 0;
         left: 0;
         width: 25px;
-        background: rgb(248, 12, 4);
+        background: #ff278a;
       }
       &::after {
         top: 0;
@@ -289,7 +395,7 @@
         width: 25px;
         height: 2px;
         border: none;
-        background: rgb(248, 12, 4);
+        background: #ff278a;
         border-radius: 0%;
         transform: rotate(-45deg);
       }

@@ -1,3 +1,7 @@
+.link-container {
+  text-decoration: none;
+}
+
 .coin-container {
   display: flex;
   justify-content: center;
@@ -9,8 +13,12 @@
   justify-content: start;
   align-items: center;
   height: 80px;
-  border-bottom: 1px solid #d7d7d7;
+  border-bottom: 1px #db00c5;
   width: 900px;
+}
+
+.regular {
+  color: white;
 }
 
 .coin {
@@ -23,6 +31,7 @@
 .coin h1 {
   font-size: 16px;
   width: 150px;
+  margin-bottom: 25px;
 }
 
 .coin img {
@@ -40,6 +49,7 @@
   text-align: right;
   justify-content: space-between;
   width: 100%;
+  margin-top: 12.5px;
 }
 
 .coin-price {
@@ -59,11 +69,11 @@
 }
 
 .red {
-  color: #f00606;
+  color: #cf2030;
 }
 
 .green {
-  color: #11d811;
+  color: #0b8552;
 }
 
 .row-link {

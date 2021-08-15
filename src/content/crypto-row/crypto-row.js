@@ -19,24 +19,24 @@ export const CryptoRow = ({
   };
   return (
     <div>
-      <Link to={{ pathname: `/${id}` }}>
+      <Link className="link-container" to={{ pathname: `/${id}` }}>
         <div className="coin-container" key={id}>
           <div className="coin-row">
-            <div className="coin">
+            <div className="coin regular">
               <img class="image" src={image} alt="" />
               <h1>{name}</h1>
               <p className="symbol">{symbol.toUpperCase()}</p>
             </div>
             <div className="coin-data">
-              <p className="coin-price">${price}</p>
+              <p className="coin-price regular">${price}</p>
               {priceChange < 0 ? (
                 <p className="coin-percent red">{priceChange}%</p>
               ) : (
                 <p className="coin-percent green">{priceChange}%</p>
               )}
-              <p className="coin-volume">${volume.toLocaleString()}</p>
+              <p className="coin-volume regular">${volume.toLocaleString()}</p>
 
-              <p className="coin-marketcap">${marketCap}</p>
+              <p className="coin-marketcap regular">${marketCap}</p>
             </div>
           </div>
         </div>

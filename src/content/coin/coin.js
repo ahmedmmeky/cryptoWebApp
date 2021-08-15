@@ -27,31 +27,48 @@ export const Coin = () => {
   }, []);
   if (coin !== undefined) {
     return (
-      <div>
-        <div className="coin-heading">
-          <img className="coin-image" src={coin.image.large} alt="" />
-          <div className="coin-identity">
-            <h1>{coin.name}</h1>
-            <h1>{coin.symbol.toUpperCase()}</h1>
-            {coin.market_data.price_change_24h < 0 ? (
-              <h2 className="red">
-                {" "}
-                {coin.market_data.price_change_percentage_24h
-                  .toFixed(2)
-                  .toLocaleString()}{" "}
-                %
+      <div classs="coin-specific-data">
+        <div className="coin-intro-container">
+          <div className="coin-heading">
+            <div className="coin-identity">
+              <img className="coin-image" src={coin.image.large} alt="" />
+              <h2 className="coin-specific-name">{coin.name}</h2>
+              <h2 className="coin-specific-symbol">
+                {coin.symbol.toUpperCase()}
               </h2>
-            ) : (
-              <h2 className="green">
-                {coin.market_data.price_change_percentage_24h
-                  .toFixed(2)
-                  .toLocaleString()}{" "}
-                %
-              </h2>
-            )}
+            </div>
+
+            <div className="coin-specific-important">
+              <div class="coin-price-cointainer">
+                <h2 className="coin-specific-price">
+                  ${coin.market_data.current_price.usd}
+                </h2>
+              </div>
+              {coin.market_data.price_change_24h < 0 ? (
+                <div className="price-change-container background-red">
+                  <h2 className="coin-specific-change">
+                    {" "}
+                    {coin.market_data.price_change_percentage_24h
+                      .toFixed(2)
+                      .toLocaleString()}{" "}
+                    %
+                  </h2>
+                </div>
+              ) : (
+                <div className="price-change-container background-green">
+                  <h2 className="coin-specific-change">
+                    {coin.market_data.price_change_percentage_24h
+                      .toFixed(2)
+                      .toLocaleString()}{" "}
+                    %
+                  </h2>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-        <div>
+
+        <div className="coin-detailed-data">
           <h2>Current Price</h2>
           <h3>${coin.market_data.current_price.usd}</h3>
           <h2>Price Change (24h)</h2>
@@ -94,7 +111,9 @@ export const Coin = () => {
           )}
           <div>
             <h2>About {coin.name}</h2>
-            {parse(coin.description.en)}
+            <article>
+              <p>{parse(coin.description.en)}</p>
+            </article>
           </div>
         </div>
       </div>

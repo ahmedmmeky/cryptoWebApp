@@ -1,23 +1,124 @@
 .coin-image {
-  width: 150px;
-  height: 150px;
+  width: 75px;
+  height: 75px;
+}
+
+.coin-intro-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #040624;
+  /*#04062b*/
 }
 
 .coin-heading {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: start;
   align-items: center;
-  gap: 20px;
+  height: 200px;
+  border-bottom: 1px #db00c5;
+  width: 900px;
 }
 
 .coin-identity {
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
+  align-items: center;
+  padding-right: 24px;
+  min-width: 600px;
   gap: 20px;
 }
 
+.coin-specific-name {
+  color: white;
+}
+
+.coin-identity h1 {
+  color: white;
+}
+
+.coin-identity h3 {
+  color: white;
+}
+
+.coin-specific-important {
+  display: flex;
+  text-align: right;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 12.5px;
+  margin-right: 2px;
+}
+
+/*.coin-specific-important {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}*/
+
+.coin-price-cointainer {
+  margin-top: 4px;
+}
+
+.price-change-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  margin-bottom: 9px;
+}
+
+.background-red {
+  background-color: red;
+}
+
+.background-green {
+  background-color: green;
+}
+
+.coin-specific-price {
+  margin-top: 5px;
+  width: 175px;
+  color: white;
+}
+
+.coin-specific-change {
+  text-align: center;
+}
+
+.coin-specific-change {
+  color: white;
+}
+
+.coin-specific-name {
+  margin-top: 18px;
+}
+
+.coin-specific-symbol {
+  color: #9289bd;
+  margin-top: 6px;
+}
+.coin-specific-symbol h2 {
+  color: #9289bd;
+}
+.coin-detailed-data {
+  background-color: #04062b;
+}
+
+.coin-detailed-data h2 {
+  color: white;
+}
+
+.coin-detailed-data h3 {
+  color: white;
+}
+
+.coin-detailed-data p {
+  color: white;
+}
 .loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
@@ -26,6 +127,10 @@
   height: 120px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
+}
+
+.coin-heading {
+  background-color: #040624;
 }
 
 @-webkit-keyframes spin {

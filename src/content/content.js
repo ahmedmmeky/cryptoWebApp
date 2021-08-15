@@ -40,11 +40,7 @@ const Content = () => {
     getExchange();
   }, [exchange]);*/
 
-  return (
-    <div>
-      <CryptoTable className="crypto-table" />
-    </div>
-  );
+  return <CryptoTable className="crypto-table" />;
 };
 
 export default Content;
