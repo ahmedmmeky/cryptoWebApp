@@ -7,14 +7,11 @@ const Header = () => {
     <>
       <div className="header">
         <div className="header-content">
-          <div className="logo">
-            <div className="LogoImg"></div>
-          </div>
-          <div className="menu">
-            <Link to="/about">
-              <h1>About</h1>
-            </Link>
-          </div>
+          <Link to="/">
+            <div className="logo">
+              <div className="LogoImg"></div>
+            </div>
+          </Link>
         </div>
       </div>
     </>

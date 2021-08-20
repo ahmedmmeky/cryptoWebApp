@@ -41,7 +41,7 @@ export const Coin = () => {
             <div className="coin-specific-important">
               <div class="coin-price-cointainer">
                 <h2 className="coin-specific-price">
-                  ${coin.market_data.current_price.usd}
+                  ${coin.market_data.current_price.usd.toLocaleString()}
                 </h2>
               </div>
               {coin.market_data.price_change_24h < 0 ? (
@@ -68,58 +68,118 @@ export const Coin = () => {
           </div>
         </div>
 
-        <div className="coin-detailed-data">
-          <h2>Current Price</h2>
-          <h3>${coin.market_data.current_price.usd}</h3>
-          <h2>Price Change (24h)</h2>
-          <h3>${coin.market_data.price_change_24h.toLocaleString()}</h3>
-          <h2>Price Change (7d)</h2>
-          <h3>
-            ${coin.market_data.price_change_percentage_7d.toLocaleString()}
-          </h3>
-          <h2>Price Change (14d)</h2>
-          <h3>
-            ${coin.market_data.price_change_percentage_14d.toLocaleString()}
-          </h3>
-          <h2>Price Change (30d)</h2>
-          <h3>
-            ${coin.market_data.price_change_percentage_30d.toLocaleString()}
-          </h3>
-          <h2>Price Change (60d)</h2>
-          <h3>
-            ${coin.market_data.price_change_percentage_60d.toLocaleString()}
-          </h3>
-          <h2>Price Change (200d)</h2>
-          <h3>
-            ${coin.market_data.price_change_percentage_200d.toLocaleString()}
-          </h3>
-          <h2>Low (24h)</h2>
-          <h3>${coin.market_data.low_24h.usd}</h3>
-          <h2>High (24h)</h2>
-          <h3>${coin.market_data.high_24h.usd}</h3>
-          <h2>Market Cap</h2>
-          <h3>${coin.market_data.market_cap.usd.toLocaleString()}</h3>
-          <h2>Volume</h2>
-          <h3>${coin.market_data.total_volume.usd.toLocaleString()}</h3>
-          <h2>Circulating Supply</h2>
-          <h3>{coin.market_data.circulating_supply.toLocaleString()}</h3>
-          <h2>Total Supply</h2>
-          {coin.market_data.total_supply !== null ? (
-            <h3>{coin.market_data.total_supply.toLocaleString()}</h3>
-          ) : (
-            <p>Currently Unavailable</p>
-          )}
-          <div>
-            <h2>About {coin.name}</h2>
-            <article>
-              <p>{parse(coin.description.en)}</p>
-            </article>
+        <div className="whole-thing">
+          <div className="whole">
+            <div className="coin-detailed-data">
+              <div className="percentage-change-container">
+                <div className="percentage-change">
+                  <div className="description">
+                    <h3 style={{ color: "#9289bd" }}>7d%</h3>
+                    <h3 className="description-data">
+                      {coin.market_data.price_change_percentage_7d.toLocaleString()}{" "}
+                      %
+                    </h3>
+                  </div>
+
+                  <div className="description">
+                    <h3 style={{ color: "#9289bd" }}>14d%</h3>
+                    <h3 className="description-data">
+                      {coin.market_data.price_change_percentage_14d.toLocaleString()}{" "}
+                      %
+                    </h3>
+                  </div>
+
+                  <div className="description">
+                    <h3 style={{ color: "#9289bd" }}>30d%</h3>
+                    <h3 className="description-data">
+                      {coin.market_data.price_change_percentage_30d.toLocaleString()}{" "}
+                      %
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="percentage-change">
+                  <div className="description">
+                    <h3 style={{ color: "#9289bd" }}>Low (24h)</h3>
+                    <h3 className="description-data">
+                      ${coin.market_data.low_24h.usd.toLocaleString()}
+                    </h3>
+                  </div>
+
+                  <div className="description">
+                    <h3 style={{ color: "#9289bd" }}>High (24h)</h3>
+                    <h3 className="description-data">
+                      ${coin.market_data.high_24h.usd.toLocaleString()}
+                    </h3>
+                  </div>
+                </div>
+                <div className="percentage-change">
+                  <div className="description">
+                    <h3 style={{ color: "#9289bd" }}>Market Cap</h3>
+                    <h3 className="description-data">
+                      ${coin.market_data.market_cap.usd.toLocaleString()}
+                    </h3>
+                  </div>
+
+                  <div className="description">
+                    <h3 style={{ color: "#9289bd" }}>Volume</h3>
+                    <h3 className="description-data">
+                      ${coin.market_data.total_volume.usd.toLocaleString()}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="coin-detailed-data">
+              <div className="percentage-change-container">
+                <div className="percentage-change">
+                  <div className="description">
+                    <h3 style={{ color: "#9289bd" }}>Circulating Supply</h3>
+                    <h3 className="description-data">
+                      {coin.market_data.circulating_supply.toLocaleString()}
+                    </h3>
+                  </div>
+                  <div className="description">
+                    <h3 style={{ color: "#9289bd" }}>Total Supply</h3>
+                    {coin.market_data.total_supply !== null ? (
+                      <h3 className="description-data">
+                        {coin.market_data.total_supply.toLocaleString()}
+                      </h3>
+                    ) : (
+                      <p>Currently Unavailable</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="article-container">
+              <h2 className="about-header">About {coin.name}</h2>
+              <div className="coin-about">
+                <article>
+                  <h3 className="parg-article">{parse(coin.description.en)}</h3>
+                </article>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     );
   } else {
-    return <div class="loader"></div>;
+    return (
+      <div class="loading-container">
+        <figure>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </figure>
+      </div>
+    );
   }
 };
 

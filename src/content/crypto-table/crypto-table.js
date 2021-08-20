@@ -27,6 +27,19 @@ const CryptoTable = () => {
       currency.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
+  window.addEventListener("scroll", function () {
+    const headerContainer = document.querySelector(".header-container");
+    if (headerContainer !== undefined && headerContainer !== null) {
+      const headerContainerHeight = headerContainer.offsetTop;
+      const scrollHeight = window.pageYOffset;
+      if (scrollHeight > headerContainerHeight) {
+        headerContainer.classList.add("scrolling");
+      } else {
+        headerContainer.classList.remove("scrolling");
+      }
+    }
+  });
+
   if (!loading) {
     return (
       <div className="crypto-table-background" style={{}}>
@@ -67,27 +80,28 @@ const CryptoTable = () => {
             {/*<li>Circulating Supply</li>*/}
           </ul>
         </div>
-
-        {updatedCurrencies.length !== 0 ? (
-          updatedCurrencies.map((coin) => {
-            return (
-              <CryptoRow
-                id={coin.id}
-                name={coin.name}
-                price={coin.current_price}
-                symbol={coin.symbol}
-                marketCap={coin.market_cap}
-                volume={coin.total_volume}
-                image={coin.image}
-                priceChange={coin.price_change_percentage_24h}
-              />
-            );
-          })
-        ) : (
-          <div className="no-coins">
-            <h2>No Coins Were Found</h2>
-          </div>
-        )}
+        <div className="all-row">
+          {updatedCurrencies.length !== 0 ? (
+            updatedCurrencies.map((coin) => {
+              return (
+                <CryptoRow
+                  id={coin.id}
+                  name={coin.name}
+                  price={coin.current_price}
+                  symbol={coin.symbol}
+                  marketCap={coin.market_cap}
+                  volume={coin.total_volume}
+                  image={coin.image}
+                  priceChange={coin.price_change_percentage_24h}
+                />
+              );
+            })
+          ) : (
+            <div className="no-coins">
+              <h2>No Coins Were Found</h2>
+            </div>
+          )}
+        </div>
       </div>
     );
   } else if (loading) {

@@ -17,6 +17,31 @@
   width: 900px;
 }
 
+.coin-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #1f83e9;
+
+  transform: scale(0.9);
+  z-index: -1;
+}
+
+.coin-row:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #1f83e9;
+}
+
+.coin-row:hover {
+  color: #1f83e9;
+  box-shadow: 0 0 5px #1f83e9;
+  text-shadow: 0 0 5px #1f83e9;
+}
+
 .regular {
   color: white;
 }

@@ -119,15 +119,17 @@
   width: 900px;
 }
 
-/*.scrolling {
-  margin-top: -110px;
+.all-row {
+  margin-top: 6px;
+}
+.scrolling {
   position: fixed;
-  background-color: rgb(157, 77, 191);
+  top: 0;
   width: 100%;
-}*/
+}
 
 .table-header li {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: white;
 }

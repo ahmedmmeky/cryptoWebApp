@@ -1,20 +1,17 @@
 .header {
-  width: 100%;
   height: 150px;
   background-color: rgba(4, 6, 43, 255);
+  position: relative;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
 }
 
 .header-content {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  height: 80px;
-  width: 900px;
-  margin-left: -17px;
+  width: 945px;
 }
 
 .header-content h1 {

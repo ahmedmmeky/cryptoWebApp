@@ -19,8 +19,8 @@ export const CryptoRow = ({
   };
   return (
     <div>
-      <Link className="link-container" to={{ pathname: `/${id}` }}>
-        <div className="coin-container" key={id}>
+      <div className="coin-container" key={id}>
+        <Link className="link-container" to={{ pathname: `/${id}` }}>
           <div className="coin-row">
             <div className="coin regular">
               <img class="image" src={image} alt="" />
@@ -39,8 +39,8 @@ export const CryptoRow = ({
               <p className="coin-marketcap regular">${marketCap}</p>
             </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 };
