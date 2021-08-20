@@ -67,7 +67,6 @@ export const Coin = () => {
             </div>
           </div>
         </div>
-
         <div className="whole-thing">
           <div className="whole">
             <div className="coin-detailed-data">
